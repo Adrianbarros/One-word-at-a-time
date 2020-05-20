@@ -34,10 +34,10 @@ app.use('/words', wordsRouter)
 // if(process.env.NODE_ENV==='production'){
 // //set a static folder
 // app.use(express.static('dist_project/build'))
-// app.get('*',(req,res) => {
-//     res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
-// });
-// }
+app.get('*',(req,res) => {
+    res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port} `);
