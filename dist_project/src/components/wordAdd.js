@@ -46,7 +46,7 @@ export class wordAdd extends Component {
         }
         
         console.log(definitions)
-        axios.post('http://localhost:5000/words/add', definitions)
+        axios.post('/words/add', definitions)
             .then(res => console.log(res.data));
         window.location = '/word-list'
     }
