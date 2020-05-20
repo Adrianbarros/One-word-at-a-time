@@ -18,7 +18,7 @@ export class wordList extends Component {
         }
     }
     componentDidMount() {
-        Axios.get('http://localhost:5000/words/')
+        Axios.get('/words/')
             .then(response => {
                 this.setState({ list: response.data })
             })
