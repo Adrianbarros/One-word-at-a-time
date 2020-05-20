@@ -37,6 +37,15 @@ app.use('/words', wordsRouter)
 // app.get('*',(req,res) => {
 //     res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
 // });
+// for production use, we serve the static react build folder
+if(process.env.NODE_ENV==='production') {
+    app.use(express.static(path.join(__dirname, '../dist_project/build')));
+  
+    // all unknown routes should be handed to our react app
+    app.get('*', function (req, res) {
+      res.sendFile(path.join(__dirname, '../dist_project/build', 'index.html'));
+    });
+  }
 
 
 app.listen(PORT, () => {
