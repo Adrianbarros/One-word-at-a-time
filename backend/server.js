@@ -10,7 +10,8 @@ require('dotenv').config();
 
 const app = express();
 //NEW CODE
-const db = require('./config/keys').mongoURI;
+// const db = require('./config/keys').mongoURI;
+
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -30,13 +31,13 @@ const wordsRouter = require('./routes/words');
 app.use('/words', wordsRouter)
 
 //serve static assests if in production NEW CODE
-if(process.env.NODE_ENV==='production'){
-//set a static folder
-app.use(express.static('dist_project/build'))
-app.get('*',(req,res) => {
-    res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
-});
-}
+// if(process.env.NODE_ENV==='production'){
+// //set a static folder
+// app.use(express.static('dist_project/build'))
+// app.get('*',(req,res) => {
+//     res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
+// });
+// }
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port} `);
