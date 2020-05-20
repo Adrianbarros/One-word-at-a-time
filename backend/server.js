@@ -12,7 +12,7 @@ const app = express();
 //NEW CODE
 // const db = require('./config/keys').mongoURI;
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -34,11 +34,11 @@ app.use('/words', wordsRouter)
 // if(process.env.NODE_ENV==='production'){
 // //set a static folder
 // app.use(express.static('dist_project/build'))
-app.get('*',(req,res) => {
-    res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
-});
+// app.get('*',(req,res) => {
+//     res.sendFile(path.resolve(__dirname,'dist_project','build','index.html'));
+// });
 
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port} `);
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT} `);
 });
